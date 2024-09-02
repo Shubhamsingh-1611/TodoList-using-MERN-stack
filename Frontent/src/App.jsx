@@ -1,10 +1,13 @@
+import Header from "./components/Header"
+import Home from "./components/Home"
+
 
 
 function App() {
  
   return (
     <>
-     <h1 className='bg-orange-200'>Shubham Singh</h1>
+   <Home/>
     </>
   )
 }
