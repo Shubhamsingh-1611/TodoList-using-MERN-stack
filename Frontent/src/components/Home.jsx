@@ -29,9 +29,10 @@ function Home() {
     <div className='flex justify-center items-center'>
     <TodoForm/>
     </div>
+    <div className='flex flex-col justify-center items-center'>
     {
        todos.length===0 ? <div>No Record</div>: todos.map( todo => (
-       <div>
+       <div className='h-[40px] w-[350px] bg-[#232f30] mb-1 rounded-2xl flex justify-between items-center text-white'>
         <div onClick={()=>(handleDone(todo._id))} className='inline'>
         <LibraryAddCheckIcon/>
         </div>
@@ -43,6 +44,7 @@ function Home() {
        </div>
        ))
     }
+    </div>
     </>
   )
 }

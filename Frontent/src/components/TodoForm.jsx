@@ -20,9 +20,9 @@ const handlesubmit = (e)=>{
   return (
     <div>
       <form>
-        <input  placeholder='Enter new Todo...' onChange={(e)=>setTask(e.target.value)} className='h-[48px] w-[400px] border-none  rounded-l-2xl hover:border-none' />
+        <input  placeholder='Enter new Todo...' onChange={(e)=>setTask(e.target.value)} className='h-[48px] w-[400px] border-none  rounded-l-2xl appearance-none' />
          <button type='button' onClick={handlesubmit} className='bg-black text-white rounded-r-2xl w-[100px] h-[50px]'>Add Task</button>
-      
+       <p>{Date(Date.now()).toString()}</p>
         
       </form>
     </div>
