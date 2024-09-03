@@ -12,12 +12,21 @@ const handleClick=(id)=>{
   .catch((err)=>console.log(err))
 }
 
-const handleDone=()=>{
 
-}
 
 function Home() {
     const [todos,setTodos] = useState([]);
+    const [done,setDone] = useState(false);
+
+    const handleDone=(id)=>{
+      console.log("clicked")
+      setDone((done)=>!done);
+      console.log(done)
+      axios.put('http://localhost:3000/update/'+id,{done:done})
+      .then((res)=> console.log("updated"))
+      .catch((err)=> console.log(err))
+      }
+
     useEffect(()=>{
      axios.get('http://localhost:3000/get')
      .then((res)=>setTodos(res.data))
@@ -36,7 +45,9 @@ function Home() {
         <div onClick={()=>(handleDone(todo._id))} className='inline'>
         <LibraryAddCheckIcon/>
         </div>
+        <p className={todo.done?"line-through bg-green-300 text-black":""}>
         {todo.task}
+        </p>
         <button type='button' onClick={()=>(handleClick(todo._id))}>
         <DeleteIcon/>
         </button>

@@ -36,6 +36,14 @@ app.post('/add', async(req,res)=>{
     
 })
 
+app.put('/update/:id',async(req,res)=>{
+    const done = req.body.done
+    const {id} = req.params
+    await Todo.findByIdAndUpdate({_id:id},{done:done})
+    .then((result)=>res.send(result))
+    .catch((err)=>res.send(err))
+})
+
 app.delete('/get/:id',async(req,res)=>{
     console.log(req.params)
 

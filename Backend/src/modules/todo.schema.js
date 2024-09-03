@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const todoSchema = new mongoose.Schema({
-    task:String
+    task:String,
+    done:{
+        type:Boolean,
+        default:false
+    }
 })
 
 const Todo =  mongoose.model("Todo",todoSchema);
